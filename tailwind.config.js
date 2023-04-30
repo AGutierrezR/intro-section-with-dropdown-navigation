@@ -6,6 +6,10 @@ module.exports = {
     fontFamily: {
       sans: ['Epilogue', 'san-serif'],
     },
+    fontWeight: {
+      medium: '500',
+      bold: '700',
+    },
     colors: {
       'almost-white': 'hsl(0, 0%, 98%)',
       'medium-gray': 'hsl(0, 0%, 41%)',
