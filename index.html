@@ -58,49 +58,32 @@
                   type="button"
                   @click="toggle"
                   :aria-expanded="open"
-                  class="after:ml-2 after:inline-block after:transition after:content-[url(images/icon-arrow-down.svg)]"
-                  :class="open ? 'after:rotate-180' : ''"
+                  class="icon-menu"
                 >
                   Features
                 </button>
                 <div x-show="open">
                   <ul class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7">
                     <li>
-                      <a href="#" class="flex items-center gap-4">
-                        <img
-                          class="block h-5"
-                          src="images/icon-todo.svg"
-                          alt=""
-                        />
+                      <a href="#" class="icon-todo flex items-center gap-4">
                         Todo List
                       </a>
                     </li>
                     <li>
-                      <a class="flex items-center gap-4" href="#">
-                        <img
-                          class="block h-5"
-                          src="images/icon-calendar.svg"
-                          alt=""
-                        />Calendar</a
+                      <a class="icon-calendar flex items-center gap-4" href="#">
+                        Calendar</a
                       >
                     </li>
                     <li>
-                      <a class="flex items-center gap-4" href="#">
-                        <img
-                          class="block h-5"
-                          src="images/icon-reminders.svg"
-                          alt=""
-                        />Reminders</a
+                      <a
+                        class="icon-reminders flex items-center gap-4"
+                        href="#"
+                      >
+                        Reminders</a
                       >
                     </li>
                     <li>
-                      <a class="flex gap-4" href="#">
-                        <img
-                          class="block h-5"
-                          src="images/icon-planning.svg"
-                          alt=""
-                        />Planning</a
-                      >
+                      <a class="icon-planning flex gap-4" href="#"> Planning</a>
                     </li>
                   </ul>
                 </div>
@@ -110,8 +93,7 @@
                   type="button"
                   @click="toggle"
                   :aria-expanded="open"
-                  class="after:ml-2 after:inline-block after:transition after:content-[url(images/icon-arrow-down.svg)]"
-                  :class="open ? 'after:rotate-180' : ''"
+                  class="icon-menu"
                 >
                   Company
                 </button>

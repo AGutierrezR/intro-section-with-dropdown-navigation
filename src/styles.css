@@ -3,3 +3,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .icon-menu::after {
+    content: url('../images/icon-arrow-down.svg');
+    @apply ml-2 inline-block transition;
+  }
+
+  .icon-menu[aria-expanded='true']::after {
+    transform: rotate(180deg);
+  }
+
+  .icon-todo::before {
+    display: inline-block;
+    transform: scale(1.3);
+    content: url('../images/icon-todo.svg');
+    @apply h-4 w-4;
+  }
+
+  .icon-calendar::before {
+    display: inline-block;
+    transform: scale(1.3);
+    content: url('../images/icon-calendar.svg');
+    @apply h-4 w-4;
+  }
+
+  .icon-reminders::before {
+    display: inline-block;
+    transform: scale(1.3);
+    content: url('../images/icon-reminders.svg');
+    @apply h-4 w-4;
+  }
+
+  .icon-planning::before {
+    display: inline-block;
+    transform: scale(1.3);
+    content: url('../images/icon-planning.svg');
+    @apply h-4 w-4;
+  }
+}
