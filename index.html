@@ -16,6 +16,7 @@
   </head>
   <body>
     <header
+      x-data="{ isMenuOpen: false }"
       class="mx-auto flex max-w-[87.75rem] items-center justify-between px-4 py-5"
     >
       <a href="#">
@@ -25,14 +26,128 @@
         <button
           type="button"
           aria-haspopup="true"
-          aria-expanded="true"
+          :aria-expanded="isMenuOpen"
           aria-controls="navbar-menu"
+          @click="isMenuOpen = !isMenuOpen"
         >
           <span class="sr-only">Open menu</span>
           <img src="images/icon-menu.svg" alt="" />
         </button>
 
-        <div class="hidden">Features Company Careers About Login Register</div>
+        <div class="md:hidden" id="mobileMenu">
+          <div
+            class="fixed inset-0 z-10 translate-x-full transition-colors duration-200 ease-in-out"
+            :class="isMenuOpen ? '!translate-x-[0] !bg-almost-black/50' : ''"
+            @click="isMenuOpen = false"
+          ></div>
+          <div
+            class="fixed right-0 top-0 z-10 h-screen w-full max-w-[15rem] translate-x-[150%] transform bg-white p-6 pt-20 text-base text-medium-gray transition-transform duration-300"
+            :class="isMenuOpen ? ' !translate-x-0' : ''"
+          >
+            <button
+              type="button"
+              class="absolute right-5 top-5"
+              @click="isMenuOpen = false"
+            >
+              <span class="sr-only">Close menu</span>
+              <img src="images/icon-close-menu.svg" alt="" />
+            </button>
+            <ul class="space-y-4">
+              <li x-data="flyout" class="relative">
+                <button
+                  type="button"
+                  @click="toggle"
+                  :aria-expanded="open"
+                  class="after:ml-2 after:inline-block after:transition after:content-[url(images/icon-arrow-down.svg)]"
+                  :class="open ? 'after:rotate-180' : ''"
+                >
+                  Features
+                </button>
+                <div x-show="open">
+                  <ul class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7">
+                    <li>
+                      <a href="#" class="flex items-center gap-4">
+                        <img
+                          class="block h-5"
+                          src="images/icon-todo.svg"
+                          alt=""
+                        />
+                        Todo List
+                      </a>
+                    </li>
+                    <li>
+                      <a class="flex items-center gap-4" href="#">
+                        <img
+                          class="block h-5"
+                          src="images/icon-calendar.svg"
+                          alt=""
+                        />Calendar</a
+                      >
+                    </li>
+                    <li>
+                      <a class="flex items-center gap-4" href="#">
+                        <img
+                          class="block h-5"
+                          src="images/icon-reminders.svg"
+                          alt=""
+                        />Reminders</a
+                      >
+                    </li>
+                    <li>
+                      <a class="flex gap-4" href="#">
+                        <img
+                          class="block h-5"
+                          src="images/icon-planning.svg"
+                          alt=""
+                        />Planning</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li x-data="flyout" class="relative">
+                <button
+                  type="button"
+                  @click="toggle"
+                  :aria-expanded="open"
+                  class="after:ml-2 after:inline-block after:transition after:content-[url(images/icon-arrow-down.svg)]"
+                  :class="open ? 'after:rotate-180' : ''"
+                >
+                  Company
+                </button>
+                <div x-show="open">
+                  <ul class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7">
+                    <li>
+                      <a href="#">History</a>
+                    </li>
+                    <li>
+                      <a href="#">Our Team</a>
+                    </li>
+                    <li>
+                      <a href="#">Blog</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+            <ul class="mt-6 block text-center text-[14px]">
+              <li>
+                <a class="b mb-1 inline-block w-full rounded-xl p-2" href="#"
+                  >Login</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-block w-full rounded-xl border border-almost-black p-2"
+                  href="#"
+                  >Register</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
 
