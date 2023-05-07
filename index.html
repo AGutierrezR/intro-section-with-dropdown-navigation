@@ -15,125 +15,60 @@
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
   </head>
   <body>
-    <header
-      x-data="{ isMenuOpen: false }"
-      class="mx-auto flex max-w-[87.75rem] items-center justify-between px-4 py-5"
-    >
-      <a href="#">
-        <img width="84" src="images/logo.svg" class="mt-1" alt="" />
-      </a>
-      <nav class="w-auto">
-        <button
-          type="button"
-          aria-haspopup="true"
-          :aria-expanded="isMenuOpen"
-          aria-controls="navbar-menu"
-          @click="isMenuOpen = !isMenuOpen"
-        >
-          <span class="sr-only">Open menu</span>
-          <img src="images/icon-menu.svg" alt="" />
-        </button>
+    <header class="relative">
+      <div class="mx-auto max-w-[86.875rem] px-4 py-5">
+        <div class="flex items-center justify-between lg:space-x-10">
+          <!-- Logo -->
+          <a href="#">
+            <img width="84" src="images/logo.svg" class="mt-1" alt="" />
+          </a>
 
-        <div class="md:hidden" id="mobileMenu">
-          <div
-            class="fixed inset-0 z-10 translate-x-full transition-colors duration-200 ease-in-out"
-            :class="isMenuOpen ? '!translate-x-[0] !bg-almost-black/50' : ''"
-            @click="isMenuOpen = false"
-          ></div>
-          <div
-            class="fixed right-0 top-0 z-10 h-screen w-full max-w-[15rem] translate-x-[150%] transform bg-white p-6 pt-20 text-base text-medium-gray transition-transform duration-300"
-            :class="isMenuOpen ? ' !translate-x-0' : ''"
-          >
+          <!-- Toggle -->
+          <div class="lg:hidden">
             <button
               type="button"
-              class="absolute right-5 top-5"
-              @click="isMenuOpen = false"
+              aria-haspopup="true"
+              :aria-expanded="isMenuOpen"
+              aria-controls="navbar-menu"
+              @click="isMenuOpen = !isMenuOpen"
             >
-              <span class="sr-only">Close menu</span>
-              <img src="images/icon-close-menu.svg" alt="" />
+              <span class="sr-only">Open menu</span>
+              <img src="images/icon-menu.svg" alt="" />
             </button>
-            <ul class="space-y-4">
-              <li x-data="flyout" class="relative">
-                <button
-                  type="button"
-                  @click="toggle"
-                  :aria-expanded="open"
-                  class="icon-menu"
-                >
-                  Features
-                </button>
-                <div x-show="open">
-                  <ul class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7">
-                    <li>
-                      <a href="#" class="icon-todo flex items-center gap-4">
-                        Todo List
-                      </a>
-                    </li>
-                    <li>
-                      <a class="icon-calendar flex items-center gap-4" href="#">
-                        Calendar</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="icon-reminders flex items-center gap-4"
-                        href="#"
-                      >
-                        Reminders</a
-                      >
-                    </li>
-                    <li>
-                      <a class="icon-planning flex gap-4" href="#"> Planning</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li x-data="flyout" class="relative">
-                <button
-                  type="button"
-                  @click="toggle"
-                  :aria-expanded="open"
-                  class="icon-menu"
-                >
-                  Company
-                </button>
-                <div x-show="open">
-                  <ul class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7">
-                    <li>
-                      <a href="#">History</a>
-                    </li>
-                    <li>
-                      <a href="#">Our Team</a>
-                    </li>
-                    <li>
-                      <a href="#">Blog</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">About</a></li>
-            </ul>
-            <ul class="mt-6 block text-center text-[14px]">
-              <li>
-                <a class="b mb-1 inline-block w-full rounded-xl p-2" href="#"
-                  >Login</a
-                >
-              </li>
-              <li>
-                <a
-                  class="inline-block w-full rounded-xl border border-almost-black p-2"
-                  href="#"
-                  >Register</a
-                >
-              </li>
-            </ul>
+          </div>
+
+          <!-- Desktop menu -->
+          <div
+            class="hidden flex-1 justify-between text-[14px] text-medium-gray lg:flex"
+          >
+            <nav class="flex items-center">
+              <a href="#" class="icon-menu px-5 hover:text-almost-black"
+                >Features</a
+              >
+              <a href="#" class="icon-menu px-5 hover:text-almost-black"
+                >Company</a
+              >
+              <a href="#" class="px-5 hover:text-almost-black">Careers</a>
+              <a href="#" class="px-5 hover:text-almost-black">About</a>
+            </nav>
+            <div class="flex items-center space-x-8 md:ml-12">
+              <a href="#" class="px-4 py-2">Login</a>
+              <a
+                href="#"
+                class="rounded-2xl border border-b-almost-black px-5 py-2"
+                >Register</a
+              >
+            </div>
           </div>
         </div>
-      </nav>
+        <!-- Mobile menu -->
+      </div>
     </header>
 
-    <main id="main" class="mx-auto flex max-w-[76.75rem] flex-col gap-4">
+    <main
+      id="main"
+      class="mx-auto flex max-w-[76.75rem] flex-col gap-4 lg:flex-row-reverse"
+    >
       <div class="flex-1">
         <picture>
           <source
@@ -143,8 +78,9 @@
           <img
             src="images/image-hero-mobile.png"
             alt=""
+            width="480"
             aria-hidden="true"
-            class="ml-auto block"
+            class="mx-auto ml-auto block"
           />
         </picture>
       </div>
@@ -154,7 +90,7 @@
         >
           Make remote work
         </h1>
-        <p class="mt-4 leading-relaxed text-medium-gray">
+        <p class="mx-auto mt-4 max-w-[43ch] leading-relaxed text-medium-gray">
           Get your team in sync, no matter your location. Streamline processes,
           create team rituals, and watch productivity soar.
         </p>
@@ -165,7 +101,7 @@
           Learn more
         </a>
         <div class="mt-12">
-          <ul class="flex items-center gap-7">
+          <ul class="flex items-center justify-center gap-7">
             <li>
               <img src="/images/client-databiz.svg" alt="databiz" />
             </li>
@@ -184,7 +120,7 @@
     </main>
 
     <footer
-      class="fixed bottom-1 w-screen px-2 text-center text-sm text-almost-black md:left-1/2 md:mt-0 md:-translate-x-1/2"
+      class="bottom-1 w-screen px-2 text-center text-sm text-almost-black lg:fixed lg:left-1/2 lg:mt-0 lg:-translate-x-1/2"
     >
       Challenge by
       <a
