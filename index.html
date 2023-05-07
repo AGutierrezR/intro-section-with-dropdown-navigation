@@ -42,12 +42,52 @@
             class="hidden flex-1 justify-between text-[14px] text-medium-gray lg:flex"
           >
             <nav class="flex items-center">
-              <a href="#" class="icon-menu px-5 hover:text-almost-black"
-                >Features</a
-              >
-              <a href="#" class="icon-menu px-5 hover:text-almost-black"
-                >Company</a
-              >
+              <div class="group relative">
+                <a href="#" class="icon-menu px-5 group-hover:text-almost-black"
+                  >Features</a
+                >
+                <div
+                  class="z-1 invisible absolute right-0 pt-4 group-hover:visible"
+                >
+                  <div
+                    class="origin-top scale-75 transform overflow-hidden rounded-lg bg-white p-8 opacity-0 shadow-xl ring-1 ring-almost-black ring-opacity-5 transition duration-200 ease-out group-hover:scale-100 group-hover:opacity-100"
+                  >
+                    <div class="flex w-max flex-col gap-4">
+                      <a href="#" class="icon-todo flex items-center gap-4">
+                        Todo List
+                      </a>
+                      <a class="icon-calendar flex items-center gap-4" href="#">
+                        Calendar</a
+                      >
+                      <a
+                        class="icon-reminders flex items-center gap-4"
+                        href="#"
+                      >
+                        Reminders</a
+                      >
+                      <a class="icon-planning flex gap-4" href="#"> Planning</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group relative">
+                <a href="#" class="icon-menu px-5 hover:text-almost-black"
+                  >Company</a
+                >
+                <div
+                  class="z-1 invisible absolute right-0 pt-4 group-hover:visible"
+                >
+                  <div
+                    class="origin-top scale-75 transform overflow-hidden rounded-lg bg-white p-8 opacity-0 shadow-xl ring-1 ring-almost-black ring-opacity-5 transition duration-200 ease-out group-hover:scale-100 group-hover:opacity-100"
+                  >
+                    <div class="flex w-max flex-col gap-4">
+                      <a href="#">History</a>
+                      <a href="#">Our Team</a>
+                      <a href="#">Blog</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <a href="#" class="px-5 hover:text-almost-black">Careers</a>
               <a href="#" class="px-5 hover:text-almost-black">About</a>
             </nav>
