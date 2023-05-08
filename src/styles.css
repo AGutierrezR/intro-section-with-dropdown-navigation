@@ -4,13 +4,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex-grow: 1;
+  }
+}
+
 @layer components {
   .icon-menu::after {
     content: url('../images/icon-arrow-down.svg');
     @apply ml-2 inline-block transition;
   }
 
-  .icon-menu[aria-expanded='true']::after {
+  .icon-menu[aria-expanded='true']::after,
+  .icon-menu:hover::after {
     transform: rotate(180deg);
   }
 
