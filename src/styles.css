@@ -9,6 +9,8 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
   }
 
   main {
@@ -17,6 +19,11 @@
 }
 
 @layer components {
+  body.lock-scroll {
+    height: 100vh;
+    overflow: hidden;
+  }
+
   .icon-menu::after {
     content: url('../images/icon-arrow-down.svg');
     @apply ml-2 inline-block transition;

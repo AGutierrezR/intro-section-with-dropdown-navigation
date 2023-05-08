@@ -14,7 +14,7 @@
 
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
   </head>
-  <body>
+  <body x-data="{ isMenuOpen: false }" :class="isMenuOpen ? 'lock-scroll' : ''">
     <header class="relative">
       <div class="mx-auto max-w-[86.875rem] px-4 py-5">
         <div class="flex items-center justify-between lg:space-x-10">
@@ -101,7 +101,104 @@
             </div>
           </div>
         </div>
+
         <!-- Mobile menu -->
+        <div class="lg:hidden" id="mobileMenu">
+          <div
+            class="fixed inset-0 z-10 translate-x-full transition-colors duration-200 ease-in-out"
+            :class="isMenuOpen ? '!translate-x-[0] !bg-almost-black/50' : ''"
+            @click="isMenuOpen = false"
+          ></div>
+          <div
+            class="fixed right-0 top-0 z-10 h-screen w-full max-w-[15rem] translate-x-[150%] transform bg-white p-6 pt-20 text-base text-medium-gray transition-transform duration-300"
+            :class="isMenuOpen ? ' !translate-x-0' : ''"
+          >
+            <button
+              type="button"
+              class="absolute right-5 top-5"
+              @click="isMenuOpen = false"
+            >
+              <span class="sr-only">Close menu</span>
+              <img src="images/icon-close-menu.svg" alt="" />
+            </button>
+            <ul class="space-y-4">
+              <li x-data="flyout" class="relative">
+                <button
+                  type="button"
+                  @click="toggle"
+                  :aria-expanded="open"
+                  class="icon-menu"
+                >
+                  Features
+                </button>
+                <div x-show="open">
+                  <ul class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7">
+                    <li>
+                      <a href="#" class="icon-todo flex items-center gap-4">
+                        Todo List
+                      </a>
+                    </li>
+                    <li>
+                      <a class="icon-calendar flex items-center gap-4" href="#">
+                        Calendar</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="icon-reminders flex items-center gap-4"
+                        href="#"
+                      >
+                        Reminders</a
+                      >
+                    </li>
+                    <li>
+                      <a class="icon-planning flex gap-4" href="#"> Planning</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li x-data="flyout" class="relative">
+                <button
+                  type="button"
+                  @click="toggle"
+                  :aria-expanded="open"
+                  class="icon-menu"
+                >
+                  Company
+                </button>
+                <div x-show="open">
+                  <ul class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7">
+                    <li>
+                      <a href="#">History</a>
+                    </li>
+                    <li>
+                      <a href="#">Our Team</a>
+                    </li>
+                    <li>
+                      <a href="#">Blog</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+            <ul class="mt-6 block text-center text-[14px]">
+              <li>
+                <a class="b mb-1 inline-block w-full rounded-xl p-2" href="#"
+                  >Login</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-block w-full rounded-xl border border-almost-black p-2"
+                  href="#"
+                  >Register</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </header>
 
