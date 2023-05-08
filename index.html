@@ -14,12 +14,17 @@
 
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
   </head>
-  <body x-data="{ isMenuOpen: false }" :class="isMenuOpen ? 'lock-scroll' : ''">
+  <body
+    x-data="{ isMenuOpen: false }"
+    class="bg-almost-white"
+    :class="isMenuOpen ? 'lock-scroll' : ''"
+  >
     <header class="relative">
       <div class="mx-auto max-w-[86.875rem] px-4 py-5">
         <div class="flex items-center justify-between lg:space-x-10">
           <!-- Logo -->
           <a href="#">
+            <span class="sr-only">Go home</span>
             <img width="84" src="images/logo.svg" class="mt-1" alt="" />
           </a>
 
@@ -215,14 +220,14 @@
             Make remote work
           </h1>
           <p
-            class="mx-auto mt-5 max-w-[43ch] text-medium-gray lg:mx-0 lg:mt-12 lg:text-[1.125rem]"
+            class="mx-auto mt-5 max-w-[46ch] text-medium-gray lg:mx-0 lg:mt-12 lg:text-[1.125rem]"
           >
             Get your team in sync, no matter your location. Streamline
             processes, create team rituals, and watch productivity soar.
           </p>
           <a
             href="#"
-            class="mx-auto mt-7 inline-block rounded-2xl bg-almost-black px-6 py-3 text-white lg:mx-0 lg:mt-12 lg:px-9 lg:py-5"
+            class="mx-auto mt-7 inline-block rounded-2xl bg-almost-black px-6 py-3 text-[18px] font-medium text-white lg:mx-0 lg:mt-[3.25rem] lg:px-8 lg:py-4"
           >
             Learn more
           </a>
