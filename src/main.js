@@ -11,4 +11,33 @@ Alpine.data('flyout', () => ({
   },
 }))
 
+
+Alpine.data('dropdown', () => ({
+  open: false,
+
+  close(focusAfter) {
+    this.open = false
+
+    focusAfter && focusAfter.focus()
+  },
+
+  trigger: {
+    ['@click']() {
+      this.open = !this.open
+    },
+  },
+
+  menuContainer: {
+    [':class']() {
+      return this.open ? 'visible' : 'invisible'
+    }
+  },
+
+  menuInner: {
+    [':class']() {
+      return this.open ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
+    }
+  }
+}))
+
 Alpine.start()
