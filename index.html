@@ -109,7 +109,7 @@
                   x-bind="trigger"
                   class="icon-menu px-5 hover:text-almost-black"
                   :aria-expanded="open"
-                  :aria-constrols="$id('dropdown-button')"
+                  :aria-controls="$id('dropdown-button')"
                 >
                   Company
                 </button>
@@ -164,17 +164,21 @@
               <img src="images/icon-close-menu.svg" alt="" />
             </button>
             <ul class="space-y-4">
-              <li x-data="flyout" class="relative">
+              <li x-data="flyout" class="relative" x-id="['flyout-menu']">
                 <button
                   type="button"
                   @click="toggle"
                   :aria-expanded="open"
+                  :aria-controls="$id('flyout-menu')"
                   class="icon-menu"
                 >
                   Features
                 </button>
                 <div x-show="open">
-                  <ul class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7">
+                  <ul
+                    class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7"
+                    :id="$id('flyout-menu')"
+                  >
                     <li>
                       <a href="#" class="icon-todo flex items-center gap-4">
                         Todo List
@@ -199,17 +203,21 @@
                   </ul>
                 </div>
               </li>
-              <li x-data="flyout" class="relative">
+              <li x-data="flyout" class="relative" x-id="['flyout-menu']">
                 <button
                   type="button"
                   @click="toggle"
                   :aria-expanded="open"
+                  :aria-controls="$id('flyout-menu')"
                   class="icon-menu"
                 >
                   Company
                 </button>
                 <div x-show="open">
-                  <ul class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7">
+                  <ul
+                    class="flex flex-col gap-4 rounded-md px-6 pb-2 pt-7"
+                    :id="$id('flyout-menu')"
+                  >
                     <li>
                       <a href="#">History</a>
                     </li>
