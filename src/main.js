@@ -15,10 +15,10 @@ Alpine.data('flyout', () => ({
 Alpine.data('dropdown', () => ({
   open: false,
 
-  close(focusAfter) {
-    this.open = false
-
-    focusAfter && focusAfter.focus()
+  dropdown: {
+    [':class']() {
+      return this.open ? 'open' : '';
+    }
   },
 
   trigger: {
@@ -27,17 +27,11 @@ Alpine.data('dropdown', () => ({
     },
   },
 
-  menuContainer: {
-    [':class']() {
-      return this.open ? 'visible' : 'invisible'
-    }
-  },
+  close(focusAfter) {
+    this.open = false
 
-  menuInner: {
-    [':class']() {
-      return this.open ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
-    }
-  }
+    focusAfter && focusAfter.focus()
+  },
 }))
 
 Alpine.start()

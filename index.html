@@ -50,6 +50,7 @@
               <div
                 class="group relative"
                 x-data="dropdown"
+                x-bind="dropdown"
                 @keydown.escape.prevent.stop="close($refs.trigger)"
                 @focusin.window="!$refs.dropdown.contains($event.target) && close()"
                 @click.outside="close()"
@@ -60,7 +61,6 @@
                   x-ref="trigger"
                   type="button"
                   x-bind="trigger"
-                  href="#"
                   class="icon-menu px-5 group-hover:text-almost-black"
                   :aria-expanded="open"
                   :aria-controls="$id('dropdown-button')"
@@ -68,13 +68,11 @@
                   Features
                 </button>
                 <div
-                  class="z-1 absolute right-0 pt-4 group-hover:visible"
-                  x-bind="menuContainer"
+                  class="z-1 invisible absolute right-0 pt-4 group-hover:visible group-[.open]:visible"
                   :id="$id('dropdown-button')"
                 >
                   <div
-                    class="origin-top transform overflow-hidden rounded-lg bg-white p-8 shadow-xl ring-1 ring-almost-black ring-opacity-5 transition duration-200 ease-out group-hover:scale-100 group-hover:opacity-100"
-                    x-bind="menuInner"
+                    class="origin-top scale-75 transform overflow-hidden rounded-lg bg-white p-8 opacity-0 shadow-xl ring-1 ring-almost-black ring-opacity-5 transition duration-200 ease-out group-hover:scale-100 group-hover:opacity-100 group-[.open]:scale-100 group-[.open]:opacity-100"
                   >
                     <div class="flex w-max flex-col gap-4">
                       <a href="#" class="icon-todo flex items-center gap-4">
@@ -97,6 +95,7 @@
               <div
                 class="group relative"
                 x-data="dropdown"
+                x-bind="dropdown"
                 @keydown.escape.prevent.stop="close($refs.trigger)"
                 @focusin.window="!$refs.dropdown.contains($event.target) && close()"
                 @click.outside="close()"
@@ -114,13 +113,11 @@
                   Company
                 </button>
                 <div
-                  class="z-1 absolute right-0 pt-4 group-hover:visible"
-                  x-bind="menuContainer"
+                  class="z-1 invisible absolute right-0 pt-4 group-hover:visible group-[.open]:visible"
                   :id="$id('dropdown-button')"
                 >
                   <div
-                    class="origin-top transform overflow-hidden rounded-lg bg-white p-8 shadow-xl ring-1 ring-almost-black ring-opacity-5 transition duration-200 ease-out group-hover:scale-100 group-hover:opacity-100"
-                    x-bind:="menuInner"
+                    class="origin-top scale-75 transform overflow-hidden rounded-lg bg-white p-8 opacity-0 shadow-xl ring-1 ring-almost-black ring-opacity-5 transition duration-200 ease-out group-hover:scale-100 group-hover:opacity-100 group-[.open]:scale-100 group-[.open]:opacity-100"
                   >
                     <div class="flex w-max flex-col gap-4">
                       <a href="#">History</a>
